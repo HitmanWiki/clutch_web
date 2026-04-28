@@ -19,50 +19,116 @@ import {
   Activity,
   Shield,
   Target,
-  Disc as DiscordIcon
+  Disc as DiscordIcon,
+  Menu,
+  X
 } from 'lucide-react';
 
 /* -------------------------------------------------------------------------- */
 /*                                  COMPONENTS                                */
 /* -------------------------------------------------------------------------- */
 
-const Nav = () => (
-  <motion.nav 
-    initial={{ y: -100 }}
-    animate={{ y: 0 }}
-    className="fixed top-0 w-full z-[999] bg-black/60 backdrop-blur-xl border-b border-white/5"
-  >
-    <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-      <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-        <motion.div 
-          whileHover={{ rotate: 10, scale: 1.1 }}
-          className="w-12 h-12 bg-clutch-blue rounded-xl flex items-center justify-center font-display font-black text-3xl text-white shadow-[0_0_30px_rgba(0,51,160,0.6)]"
-        >
-          C
-        </motion.div>
-        <span className="font-display font-black text-3xl tracking-tighter text-white italic">CLUTCH</span>
-      </div>
-      
-      <div className="hidden lg:flex gap-12 text-[12px] font-black uppercase tracking-[0.4em] text-white/40">
-        {['Scout', 'Tokenomics', 'Buy', 'Mascot'].map((item) => (
-          <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-clutch-blue transition-all relative group py-2">
-            {item}
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-clutch-blue transition-all group-hover:w-full opacity-0 group-hover:opacity-100" />
+const Nav = () => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const navItems = [
+    { name: 'Scout', href: '#scout' },
+    { name: 'Tokenomics', href: '#tokenomics' },
+    { name: 'Buy', href: '#buy' },
+    { name: 'Mascot', href: '#mascot' },
+  ];
+
+  return (
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className="fixed top-0 w-full z-[999] bg-black/60 backdrop-blur-xl border-b border-white/5"
+    >
+      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+        <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <motion.div 
+            whileHover={{ rotate: 10, scale: 1.1 }}
+            className="w-12 h-12 bg-clutch-blue rounded-xl flex items-center justify-center font-display font-black text-3xl text-white shadow-[0_0_30px_rgba(0,51,160,0.6)]"
+          >
+            C
+          </motion.div>
+          <span className="font-display font-black text-3xl tracking-tighter text-white italic">CLUTCH</span>
+        </div>
+        
+        {/* Desktop Nav Items */}
+        <div className="hidden lg:flex gap-12 text-[12px] font-black uppercase tracking-[0.4em] text-white/40">
+          {navItems.map((item) => (
+            <a key={item.name} href={item.href} className="hover:text-clutch-blue transition-all relative group py-2">
+              {item.name}
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-clutch-blue transition-all group-hover:w-full opacity-0 group-hover:opacity-100" />
+            </a>
+          ))}
+        </div>
+
+        {/* Action Buttons (Desktop) */}
+        <div className="hidden lg:flex items-center gap-6">
+          <a href="#" className="hidden sm:block px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg font-black text-[11px] uppercase tracking-[0.2em] transition-all text-white/60 hover:text-white">
+            Audit
           </a>
-        ))}
+          <a href="#buy" className="px-8 py-3 bg-clutch-blue text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(0,51,160,0.4)] hover:shadow-[0_0_50px_rgba(0,51,160,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
+            Buy $CLUTCH
+          </a>
+        </div>
+
+        {/* Mobile menu button */}
+        <div className="lg:hidden">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="w-12 h-12 flex items-center justify-center text-white p-2"
+          >
+            {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+          </button>
+        </div>
       </div>
 
-      <div className="flex items-center gap-6">
-        <a href="#" className="hidden sm:block px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg font-black text-[11px] uppercase tracking-[0.2em] transition-all text-white/60 hover:text-white">
-          Dapp
-        </a>
-        <a href="#buy" className="px-8 py-3 bg-clutch-blue text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(0,51,160,0.4)] hover:shadow-[0_0_50px_rgba(0,51,160,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
-          Buy $CLUTCH
-        </a>
-      </div>
-    </div>
-  </motion.nav>
-);
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-black/95 border-t border-white/5 overflow-hidden"
+          >
+            <div className="flex flex-col p-6 gap-6">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-display font-black uppercase tracking-widest text-white/60 hover:text-clutch-blue transition-colors px-4 py-2 border-l-4 border-transparent hover:border-clutch-blue bg-white/5 rounded-r-lg"
+                >
+                  {item.name}
+                </a>
+              ))}
+              <div className="flex flex-col gap-4 mt-4">
+                <a
+                  href="#"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="w-full py-4 text-center border-2 border-white/10 rounded-xl font-black text-[11px] uppercase tracking-[0.2em] text-white/60"
+                >
+                  Audit
+                </a>
+                <a
+                  href="#buy"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="w-full py-4 text-center bg-clutch-blue text-white rounded-xl font-black text-[11px] uppercase tracking-[0.2em] shadow-xl"
+                >
+                  Buy $CLUTCH
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
+  );
+};
 
 const SectionDivider = () => (
   <div className="clutch-divider" />
@@ -81,7 +147,8 @@ const Hero = () => (
       >
         <source src="/clutch-ezgif.com-gif-to-mp4-converter.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent z-10" />
       <div className="absolute inset-0 flag-stripe-overlay pointer-events-none" />
     </div>
 
@@ -430,7 +497,7 @@ const Mascot = () => (
            <div className="relative">
               <div className="absolute -inset-10 lg:-inset-40 bg-clutch-blue/20 blur-[60px] lg:blur-[150px] rounded-full animate-pulse" />
               <img 
-                src="/5843827048512687173.png" 
+                src="/clutch_logo_sticker.png" 
                 alt="Main Mascot Clutch" 
                 className="w-[280px] md:w-[400px] lg:w-[550px] h-auto relative z-10 drop-shadow-[0_0_60px_rgba(0,51,160,0.4)] lg:drop-shadow-[0_0_100px_rgba(0,51,160,0.5)]" 
               />
@@ -548,7 +615,8 @@ const Footer = () => (
 
 export default function App() {
   return (
-    <div className="min-h-screen">
+    <div className="usa-bg min-h-screen text-white font-sans selection:bg-clutch-blue selection:text-white relative">
+      <div className="scan-line" />
       <Nav />
       <main>
         <Hero />
