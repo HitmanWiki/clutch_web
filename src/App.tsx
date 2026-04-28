@@ -65,8 +65,8 @@ const Nav = () => {
 
         {/* Action Buttons (Desktop) */}
         <div className="hidden lg:flex items-center gap-6">
-          <a href="#" className="hidden sm:block px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg font-black text-[11px] uppercase tracking-[0.2em] transition-all text-white/60 hover:text-white">
-            Audit
+          <a href="https://frontend-wcup.vercel.app/" className="hidden sm:block px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg font-black text-[11px] uppercase tracking-[0.2em] transition-all text-white/60 hover:text-white">
+            Dapp
           </a>
           <a href="#buy" className="px-8 py-3 bg-clutch-blue text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(0,51,160,0.4)] hover:shadow-[0_0_50px_rgba(0,51,160,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
             Buy $CLUTCH
