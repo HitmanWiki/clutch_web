@@ -5,16 +5,16 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", sans-serif;
   
-  --color-clutch-blue: #0033A0;
+  --color-clutch-blue: #1e4fd8;
   --color-clutch-red: #c62736;
-  --color-clutch-gold: #FFD700;
-  --color-maxi-black: #0c1334;
-  --color-clutch-blue-glow: rgba(0, 51, 160, 0.4);
+  --color-clutch-gold: #f6a81c;
+  --color-maxi-black: #07112b;
+  --color-clutch-blue-glow: rgba(30, 79, 216, 0.4);
 }
 
 @layer base {
   body {
-    @apply bg-maxi-black text-white antialiased selection:bg-clutch-blue selection:text-white font-sans;
+    @apply bg-[#07112b] text-white antialiased selection:bg-clutch-blue selection:text-white font-sans;
     position: relative;
     overflow-x: hidden;
   }
@@ -42,12 +42,9 @@
 /* American Web Flags / Football Vibes Background */
 .usa-bg {
   background: 
-    radial-gradient(circle at 10% 10%, rgba(200, 16, 46, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 90% 90%, rgba(0, 51, 160, 0.05) 0%, transparent 40%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) 0 0 / 40px 40px,
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px) 0 0 / 40px 40px;
+    linear-gradient(175deg, #0a1840 0%, #07112b 50%, #040c1e 100%);
   background-attachment: fixed;
-  background-color: #010101;
+  background-color: #07112b;
   position: relative;
   overflow: hidden;
 }
@@ -55,18 +52,16 @@
 .usa-bg::before {
   content: "";
   position: absolute;
-  inset: -100%;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 51, 160, 0.1) 0%, transparent 60%),
-              radial-gradient(circle at 20% 80%, rgba(200, 16, 46, 0.08) 0%, transparent 60%);
-  filter: blur(120px);
-  z-index: -1;
-  animation: bg-pan 30s linear infinite;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(246, 168, 28, 0.03) 40px, rgba(30, 79, 216, 0.03) 41px);
+  pointer-events: none;
+  animation: field-shimmer 15s linear infinite;
+  z-index: 1;
 }
 
-@keyframes bg-pan {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.2); }
-  100% { transform: rotate(360deg) scale(1); }
+@keyframes field-shimmer {
+  0% { transform: translateX(-10%) translateY(-10%) rotate(0deg); }
+  100% { transform: translateX(10%) translateY(10%) rotate(2deg); }
 }
 
 .usa-bg::after {
@@ -74,8 +69,8 @@
   position: absolute;
   inset: 0;
   background: 
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 100px),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 100px);
+    radial-gradient(circle at 10% 10%, rgba(198, 39, 54, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(30, 79, 216, 0.05) 0%, transparent 40%);
   pointer-events: none;
   opacity: 0.3;
 }
@@ -86,7 +81,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, transparent, rgba(0, 51, 160, 0.2), transparent);
+  background: linear-gradient(to right, transparent, rgba(30, 79, 216, 0.2), transparent);
   animation: scan 8s linear infinite;
   z-index: 5;
   pointer-events: none;
@@ -112,8 +107,8 @@
     45deg,
     transparent,
     transparent 60px,
-    rgba(200, 16, 46, 0.03) 60px,
-    rgba(200, 16, 46, 0.08) 120px
+    rgba(198, 39, 54, 0.03) 60px,
+    rgba(198, 39, 54, 0.08) 120px
   );
 }
 
@@ -122,32 +117,32 @@
 }
 
 .text-clutch-gradient {
-  background: linear-gradient(to bottom, #FFFFFF 0%, #0033A0 40%, #C8102E 100%);
+  background: linear-gradient(to bottom, #FFFFFF 0%, #1e4fd8 40%, #c62736 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-  filter: drop-shadow(0 0 15px rgba(0, 51, 160, 0.4));
+  filter: drop-shadow(0 0 15px rgba(30, 79, 216, 0.4));
 }
 
 .clutch-card {
-  @apply bg-[#0A0A0A] border-2 border-white/5 rounded-2xl relative overflow-hidden;
+  @apply bg-[#0a1840]/30 border-2 border-white/5 backdrop-blur-md rounded-2xl relative overflow-hidden;
 }
 
 .clutch-card-accent {
-  @apply bg-[#0A0A0A] border-2 border-clutch-blue/30 rounded-2xl relative overflow-hidden;
+  @apply bg-[#0a1840]/50 border-2 border-clutch-blue/30 rounded-2xl relative overflow-hidden;
 }
 
 .clutch-economy-bar {
-  @apply bg-[#111111] border border-clutch-blue/20 rounded-xl p-6 flex items-center gap-6 relative overflow-hidden transition-all hover:bg-[#1A1A1A] hover:border-clutch-blue/50;
-  box-shadow: inset 6px 0 0 #0033A0;
+  @apply bg-[#0f2060]/30 border border-clutch-blue/20 rounded-xl p-6 flex items-center gap-6 relative overflow-hidden transition-all hover:bg-[#0f2060]/50 hover:border-clutch-blue/50;
+  box-shadow: inset 6px 0 0 #1e4fd8;
 }
 
 .clutch-gradient-btn {
-  @apply px-10 py-4 bg-gradient-to-b from-clutch-blue to-[#001A50] text-white font-black uppercase tracking-[0.2em] text-sm rounded-xl border-2 border-white/10 shadow-[0_10px_30px_rgba(0,51,160,0.4)] hover:shadow-[0_15px_40px_rgba(0,51,160,0.6)] hover:-translate-y-1 active:translate-y-0 transition-all;
+  @apply px-10 py-4 bg-gradient-to-r from-clutch-blue to-[#1535a0] text-white font-black uppercase tracking-[0.2em] text-sm rounded-xl border-2 border-white/10 shadow-[0_10px_30px_rgba(30,79,216,0.4)] hover:shadow-[0_15px_40px_rgba(30,79,216,0.6)] hover:-translate-y-1 active:translate-y-0 transition-all;
 }
 
 .clutch-red-btn {
-  @apply px-10 py-4 bg-clutch-red text-white font-black uppercase tracking-[0.2em] text-sm rounded-xl border-2 border-white/10 shadow-[0_10px_30px_rgba(200,16,46,0.3)] hover:bg-[#D8102E] hover:-translate-y-1 active:translate-y-0 transition-all;
+  @apply px-10 py-4 bg-clutch-red text-white font-black uppercase tracking-[0.2em] text-sm rounded-xl border-2 border-white/10 shadow-[0_10px_30px_rgba(198,39,54,0.3)] hover:bg-[#c62736]/90 hover:-translate-y-1 active:translate-y-0 transition-all;
 }
 
 .whitepaper-btn {
@@ -156,8 +151,8 @@
 
 .stadium-bg {
   background-image: 
-    linear-gradient(rgba(0, 51, 160, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 51, 160, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(30, 79, 216, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 79, 216, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
@@ -170,10 +165,10 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #07112b;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0033A0;
+  background: #1e4fd8;
   border-radius: 5px;
 }
 
