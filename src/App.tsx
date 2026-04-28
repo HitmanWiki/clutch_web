@@ -106,11 +106,11 @@ const Nav = () => {
               ))}
               <div className="flex flex-col gap-4 mt-4">
                 <a
-                  href="#"
+                  href="https://frontend-wcup.vercel.app/"
                   onClick={() => setIsMenuOpen(false)}
                   className="w-full py-4 text-center border-2 border-white/10 rounded-xl font-black text-[11px] uppercase tracking-[0.2em] text-white/60"
                 >
-                  Audit
+                  Dapp
                 </a>
                 <a
                   href="#buy"
