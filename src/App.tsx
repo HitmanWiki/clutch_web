@@ -497,7 +497,7 @@ const Mascot = () => (
            <div className="relative">
               <div className="absolute -inset-10 lg:-inset-40 bg-clutch-blue/20 blur-[60px] lg:blur-[150px] rounded-full animate-pulse" />
               <img 
-                src="/clutch_logo_sticker.png" 
+                src="/5843827048512687173.png" 
                 alt="Main Mascot Clutch" 
                 className="w-[280px] md:w-[400px] lg:w-[550px] h-auto relative z-10 drop-shadow-[0_0_60px_rgba(0,51,160,0.4)] lg:drop-shadow-[0_0_100px_rgba(0,51,160,0.5)]" 
               />
