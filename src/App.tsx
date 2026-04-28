@@ -401,7 +401,7 @@ const Tactics = () => (
              <div className="relative -translate-x-1/2 group">
                 <div className="absolute -inset-6 bg-clutch-blue/20 blur-2xl rounded-full group-hover:bg-clutch-blue/40 transition-colors" />
                 <div className="w-28 h-28 rounded-full border-4 border-clutch-blue bg-[#0A0A0A] p-1 shadow-2xl relative">
-                   <img src="/5843827048512687173.jpg" className="w-full h-full object-cover rounded-full" alt="tracker" />
+                   <img src="/5843827048512687173.png" className="w-full h-full object-cover rounded-full" alt="tracker" />
                    <div className="absolute -top-14 left-1/2 -translate-x-1/2 bg-clutch-red text-white text-[11px] font-black px-3 py-1.5 rounded uppercase tracking-widest shadow-2xl whitespace-nowrap">
                       CLUTCH ON TOUR
                    </div>
