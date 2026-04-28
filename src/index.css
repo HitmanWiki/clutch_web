@@ -8,13 +8,13 @@
   --color-clutch-blue: #1e4fd8;
   --color-clutch-red: #c62736;
   --color-clutch-gold: #f6a81c;
-  --color-maxi-black: #07112b;
+  --color-maxi-black: #0c1334;
   --color-clutch-blue-glow: rgba(30, 79, 216, 0.4);
 }
 
 @layer base {
   body {
-    @apply bg-[#07112b] text-white antialiased selection:bg-clutch-blue selection:text-white font-sans;
+    @apply bg-[#0c1334] text-white antialiased selection:bg-clutch-blue selection:text-white font-sans;
     position: relative;
     overflow-x: hidden;
   }
@@ -42,9 +42,9 @@
 /* American Web Flags / Football Vibes Background */
 .usa-bg {
   background: 
-    linear-gradient(175deg, #0a1840 0%, #07112b 50%, #040c1e 100%);
+    linear-gradient(175deg, #0a1840 0%, #0c1334 50%, #040c1e 100%);
   background-attachment: fixed;
-  background-color: #07112b;
+  background-color: #0c1334;
   position: relative;
   overflow: hidden;
 }
@@ -165,7 +165,7 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #07112b;
+  background: #0c1334;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e4fd8;
