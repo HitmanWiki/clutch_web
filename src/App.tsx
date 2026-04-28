@@ -46,13 +46,11 @@ const Nav = () => {
     >
       <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
         <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <motion.div 
-            whileHover={{ rotate: 10, scale: 1.1 }}
-            className="w-12 h-12 bg-clutch-blue rounded-xl flex items-center justify-center font-display font-black text-3xl text-white shadow-[0_0_30px_rgba(0,51,160,0.6)]"
-          >
-            C
-          </motion.div>
-          <span className="font-display font-black text-3xl tracking-tighter text-white italic">CLUTCH</span>
+          <img 
+            src="/logo.png" 
+            alt="Clutch Logo" 
+            className="h-14 w-auto drop-shadow-[0_0_15px_rgba(0,51,160,0.5)] hover:scale-105 transition-transform" 
+          />
         </div>
         
         {/* Desktop Nav Items */}
@@ -351,46 +349,61 @@ const Tokenomics = () => {
   );
 };
 
-const Buy = () => (
-  <section id="buy" className="py-40 px-6 relative usa-bg overflow-hidden border-t-8 border-clutch-blue/20">
-    <div className="max-w-7xl mx-auto">
-      <h2 className="font-display text-7xl md:text-8xl font-black mb-24 uppercase tracking-tighter text-center">
-        HOW TO <span className="text-clutch-blue">BUY</span>
-      </h2>
-      
-      <div className="grid md:grid-cols-4 gap-8">
-        {[
-          { step: "01", title: "Create Wallet", desc: "Download Coinbase Wallet or Metamask and bridge some ETH to Base Chain." },
-          { step: "02", title: "Select DEX", desc: "Head over to Uniswap or SushiSwap and select the Base Network." },
-          { step: "03", title: "Insert CA", desc: "Paste the official $CLUTCH contract address into the swap interface." },
-          { step: "04", title: "Swap ETH", desc: "Select the amount of ETH you want to swap and hit 'Confirm'. Welcome to the team!" },
-        ].map((item, i) => (
-          <div key={i} className="clutch-card p-10 relative group border-2 border-white/5 hover:border-clutch-blue transition-all">
-            <div className="text-clutch-blue font-display font-black text-5xl mb-6 italic opacity-50 group-hover:opacity-100 transition-opacity">
-              {item.step}
-            </div>
-            <h4 className="text-xl font-display font-black uppercase mb-4 tracking-tighter">{item.title}</h4>
-            <p className="text-white/30 text-xs font-bold uppercase tracking-widest leading-relaxed">
-              {item.desc}
-            </p>
-          </div>
-        ))}
-      </div>
+const Buy = () => {
+  const [copied, setCopied] = React.useState(false);
+  const contractAddress = "0x0000000000000000000000000000000000000000";
 
-      <div className="mt-20 p-8 bg-black border-2 border-clutch-blue/20 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="flex-1">
-          <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Official Contract Address</p>
-          <div className="font-mono text-clutch-blue break-all text-sm font-bold bg-white/5 p-4 rounded-lg select-all">
-            0x0000000000000000000000000000000000000000 (BASE)
-          </div>
+  const handleCopy = () => {
+    navigator.clipboard.writeText(contractAddress);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <section id="buy" className="py-40 px-6 relative usa-bg overflow-hidden border-t-8 border-clutch-blue/20">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="font-display text-7xl md:text-8xl font-black mb-24 uppercase tracking-tighter text-center">
+          HOW TO <span className="text-clutch-blue">BUY</span>
+        </h2>
+        
+        <div className="grid md:grid-cols-4 gap-8">
+          {[
+            { step: "01", title: "Create Wallet", desc: "Download Coinbase Wallet or Metamask and bridge some ETH to Base Chain." },
+            { step: "02", title: "Select DEX", desc: "Head over to Uniswap or SushiSwap and select the Base Network." },
+            { step: "03", title: "Insert CA", desc: "Paste the official $CLUTCH contract address into the swap interface." },
+            { step: "04", title: "Swap ETH", desc: "Select the amount of ETH you want to swap and hit 'Confirm'. Welcome to the team!" },
+          ].map((item, i) => (
+            <div key={i} className="clutch-card p-10 relative group border-2 border-white/5 hover:border-clutch-blue transition-all text-center md:text-left">
+              <div className="text-clutch-blue font-display font-black text-5xl mb-6 italic opacity-50 group-hover:opacity-100 transition-opacity">
+                {item.step}
+              </div>
+              <h4 className="text-xl font-display font-black uppercase mb-4 tracking-tighter">{item.title}</h4>
+              <p className="text-white/30 text-xs font-bold uppercase tracking-widest leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))}
         </div>
-        <button className="clutch-gradient-btn whitespace-nowrap">
-           Copy Address
-        </button>
+
+        <div className="mt-20 p-8 bg-black border-2 border-clutch-blue/20 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group">
+          <div className="absolute inset-0 bg-clutch-blue/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="flex-1 w-full relative z-10">
+            <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Official Contract Address (BASE)</p>
+            <div className="font-mono text-clutch-blue break-all text-sm font-bold bg-white/5 p-4 rounded-lg select-all border border-white/5 group-hover:border-clutch-blue/30 transition-colors">
+              {contractAddress}
+            </div>
+          </div>
+          <button 
+            onClick={handleCopy}
+            className={`clutch-gradient-btn whitespace-nowrap min-w-[180px] relative z-10 transform active:scale-95 transition-all ${copied ? 'brightness-150' : ''}`}
+          >
+             {copied ? 'Copied!' : 'Copy Address'}
+          </button>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Tactics = () => (
   <section id="tactics" className="py-40 px-6 usa-bg overflow-hidden relative border-t-8 border-clutch-blue/20 bg-gradient-to-b from-black to-[#050505]">
