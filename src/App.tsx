@@ -65,7 +65,7 @@ const Nav = () => {
 
         {/* Action Buttons (Desktop) */}
         <div className="hidden lg:flex items-center gap-6">
-          <a href="https://frontend-wcup.vercel.app/" className="px-8 py-3 bg-clutch-red text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(0,51,160,0.4)] hover:shadow-[0_0_50px_rgba(0,51,160,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
+          <a href="https://dapp.clutchthebaldeagle.com/" className="px-8 py-3 bg-clutch-red text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(0,51,160,0.4)] hover:shadow-[0_0_50px_rgba(0,51,160,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
             Dapp
           </a>
           <a href="#buy" className="px-8 py-3 bg-clutch-blue text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(0,51,160,0.4)] hover:shadow-[0_0_50px_rgba(0,51,160,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
@@ -106,7 +106,7 @@ const Nav = () => {
               ))}
               <div className="flex flex-col gap-4 mt-4">
                 <a
-                  href="https://frontend-wcup.vercel.app/"
+                  href="https://dapp.clutchthebaldeagle.com/"
                   onClick={() => setIsMenuOpen(false)}
                   className="w-full py-4 text-center  bg-clutch-red text-white rounded-xl font-black text-[11px] uppercase tracking-[0.2em] text-white/60"
                 >
