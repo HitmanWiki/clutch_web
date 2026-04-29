@@ -167,7 +167,7 @@ const Hero = () => (
           </h1>
         </div>
         <h2 className="font-display text-4xl md:text-7xl font-black uppercase tracking-[0.25em] text-white mt-4 mb-16 select-none drop-shadow-2xl">
-          THE PRIDE OF BASE
+          The Bald Eagle
         </h2>
       </motion.div>
 
@@ -189,7 +189,7 @@ const Hero = () => (
           className="flex flex-col sm:flex-row gap-6 mt-12 md:-mt-8 justify-center relative z-50"
         >
           <a href="#buy" className="clutch-gradient-btn min-w-[240px] text-center flex items-center justify-center">
-            Buy on Base
+            Buy on Uniswap
           </a>
           <button className="clutch-red-btn min-w-[240px]">
             Join Telegram
@@ -285,11 +285,11 @@ const Scout = () => (
 
 const Tokenomics = () => {
   const stats = [
-    { label: "COMMUNITY AIRDROP", percent: 15, detail: "Loyal Supporters" },
-    { label: "LIQUIDITY POOL", percent: 60, detail: "Burned & Locked" },
-    { label: "MARKETING & PARTNERS", percent: 10, detail: "World Cup Exposure" },
-    { label: "DEVELOPMENT FUND", percent: 10, detail: "Betting App Build" },
-    { label: "TEAM ALLOCATION", percent: 5, detail: "Vested for 2 Years" },
+    { label: "SUPPLY TO POOL", percent: 100, detail: "Fully decentralized" },
+    { label: "LIQUIDITY POOL", percent: 100, detail: "Locked" },
+    { label: "TAXES", percent: 0, detail: "World Cup Exposure" },
+    { label: "DEVELOPMENT FUND", percent: 0, detail: "Incured By team-Betting App development" },
+    { label: "TEAM ALLOCATION", percent: 0, detail: "Community First" },
   ];
 
   return (
@@ -588,7 +588,7 @@ const Footer = () => (
                {[
                  { Icon: Twitter, label: "Twitter" },
                  { Icon: Send, label: "Telegram" },
-                 { Icon: Globe, label: "DexTools" }
+                 { Icon: Globe, label: "Dexscreener" }
                ].map((item, i) => (
                  <motion.a 
                    key={i} 
