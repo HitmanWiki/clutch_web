@@ -21,7 +21,16 @@ import {
   Target,
   Disc as DiscordIcon,
   Menu,
-  X
+  X,
+  Clock,
+  Wallet,
+  Lock,
+  Gift,
+  Percent,
+  Calendar,
+  Award,
+  ExternalLink,
+  CheckCircle
 } from 'lucide-react';
 
 /* -------------------------------------------------------------------------- */
@@ -34,6 +43,7 @@ const Nav = () => {
   const navItems = [
     { name: 'Scout', href: '#scout' },
     { name: 'Tokenomics', href: '#tokenomics' },
+    { name: 'Staking', href: '#staking' },
     { name: 'Buy', href: '#buy' },
     { name: 'Mascot', href: '#mascot' },
   ];
@@ -65,10 +75,13 @@ const Nav = () => {
 
         {/* Action Buttons (Desktop) */}
         <div className="hidden lg:flex items-center gap-6">
-          <a href="https://dapp.basedclutch.fun/" className="px-8 py-3 bg-clutch-red text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(0,51,160,0.4)] hover:shadow-[0_0_50px_rgba(0,51,160,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
+          <a href="https://staking.basedclutch.fun/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-gradient-to-r from-clutch-blue to-clutch-red text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(0,51,160,0.4)] hover:shadow-[0_0_50px_rgba(0,51,160,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
+            Stake $CLUTCH
+          </a>
+          <a href="https://dapp.basedclutch.fun/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-clutch-red text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(200,16,46,0.4)] hover:shadow-[0_0_50px_rgba(200,16,46,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
             Dapp
           </a>
-          <a href="#buy" className="px-8 py-3 bg-clutch-blue text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(0,51,160,0.4)] hover:shadow-[0_0_50px_rgba(0,51,160,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
+          <a href="https://app.uniswap.org/swap?&chain=base&use=v2&outputCurrency=0x7f2d6f4ae65a4e6f52a0f0895c834a68ee2472c4" className="px-8 py-3 bg-clutch-blue text-white rounded-lg font-black text-[11px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(0,51,160,0.4)] hover:shadow-[0_0_50px_rgba(0,51,160,0.6)] hover:scale-105 active:scale-95 transition-all outline outline-1 outline-white/20 block text-center">
             Buy $CLUTCH
           </a>
         </div>
@@ -106,14 +119,25 @@ const Nav = () => {
               ))}
               <div className="flex flex-col gap-4 mt-4">
                 <a
-                  href="https://dapp.basedclutch.fun/"
+                  href="https://staking.basedclutch.fun/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
-                  className="w-full py-4 text-center  bg-clutch-red text-white rounded-xl font-black text-[11px] uppercase tracking-[0.2em] text-white/60"
+                  className="w-full py-4 text-center bg-gradient-to-r from-clutch-blue to-clutch-red text-white rounded-xl font-black text-[11px] uppercase tracking-[0.2em] shadow-xl"
+                >
+                  Stake $CLUTCH
+                </a>
+                <a
+                  href="https://dapp.basedclutch.fun/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="w-full py-4 text-center bg-clutch-red text-white rounded-xl font-black text-[11px] uppercase tracking-[0.2em]"
                 >
                   Dapp
                 </a>
                 <a
-                  href="#buy"
+                  href="https://app.uniswap.org/swap?&chain=base&use=v2&outputCurrency=0x7f2d6f4ae65a4e6f52a0f0895c834a68ee2472c4"
                   onClick={() => setIsMenuOpen(false)}
                   className="w-full py-4 text-center bg-clutch-blue text-white rounded-xl font-black text-[11px] uppercase tracking-[0.2em] shadow-xl"
                 >
@@ -127,10 +151,6 @@ const Nav = () => {
     </motion.nav>
   );
 };
-
-const SectionDivider = () => (
-  <div className="clutch-divider" />
-);
 
 const Hero = () => (
   <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -188,12 +208,12 @@ const Hero = () => (
           transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-6 mt-12 md:-mt-8 justify-center relative z-50"
         >
-          <a href="#buy" className="clutch-gradient-btn min-w-[240px] text-center flex items-center justify-center">
+          <a href="https://app.uniswap.org/swap?&chain=base&use=v2&outputCurrency=0x7f2d6f4ae65a4e6f52a0f0895c834a68ee2472c4" className="clutch-gradient-btn min-w-[240px] text-center flex items-center justify-center">
             Buy on Uniswap
           </a>
-          <button className="clutch-red-btn min-w-[240px]">
+          <a href="https://t.me/ClutchOnBase" target="_blank" rel="noopener noreferrer" className="clutch-red-btn min-w-[240px] text-center flex items-center justify-center">
             Join Telegram
-          </button>
+          </a>
         </motion.div>
       </div>
     </div>
@@ -203,7 +223,6 @@ const Hero = () => (
 const Scout = () => (
   <section id="scout" className="py-40 px-6 relative usa-bg overflow-hidden border-t-8 border-clutch-blue/20">
     <div className="max-w-7xl mx-auto relative z-20">
-      {/* Floating background icons */}
       <div className="absolute -top-20 -left-20 text-clutch-blue/10 animate-float-football hidden lg:block">
         <Target size={200} strokeWidth={0.5} />
       </div>
@@ -224,7 +243,6 @@ const Scout = () => (
             alt="Clutch Action" 
             className="w-full h-auto relative z-10 drop-shadow-[0_0_60px_rgba(0,51,160,0.6)] rounded-2xl border-2 border-white/10"
           />
-          {/* Field effect */}
           <div className="absolute -bottom-16 left-0 w-full h-32 stadium-bg [mask-image:linear-gradient(to_top,black,transparent)] opacity-60 z-0" />
         </motion.div>
         
@@ -285,10 +303,11 @@ const Scout = () => (
 
 const Tokenomics = () => {
   const stats = [
-    { label: "SUPPLY TO POOL", percent: 100, detail: "Fully decentralized" },
-    { label: "LIQUIDITY POOL", percent: 100, detail: "Locked" },
+    { label: "SUPPLY TO POOL", percent: 90, detail: "Fully decentralized" },
+    { label: "LIQUIDITY POOL", percent: 90, detail: "Burnt" },
+    { label: "STAKING CONTRACT", percent: 10, detail: "100,000,000 $CLUTCH for rewards" },
     { label: "TAXES", percent: 0, detail: "World Cup Exposure" },
-    { label: "DEVELOPMENT FUND", percent: 0, detail: "Incured By team-Betting App development" },
+    { label: "DEVELOPMENT FUND", percent: 0, detail: "Incurred By team-Betting App development" },
     { label: "TEAM ALLOCATION", percent: 0, detail: "Community First" },
   ];
 
@@ -349,9 +368,146 @@ const Tokenomics = () => {
   );
 };
 
+// Clean, Minimal Staking Section
+const Staking = () => {
+  const STAKING_URL = "https://staking.basedclutch.fun/";
+  
+  const apyTiers = [
+    { days: 7, apy: 250, color: "from-blue-600 to-blue-400", textColor: "text-blue-400" },
+    { days: 14, apy: 350, color: "from-purple-600 to-purple-400", textColor: "text-purple-400" },
+    { days: 21, apy: 500, color: "from-red-600 to-red-400", textColor: "text-red-400" }
+  ];
+
+  const benefits = [
+    { icon: Gift, title: "10% Supply", desc: "100M $CLUTCH allocated for staking rewards" },
+    { icon: Percent, title: "High APY", desc: "Earn up to 500% APY on locked stakes" },
+    { icon: Lock, title: "Secure", desc: "Audited smart contract with 0% taxes" },
+    { icon: Trophy, title: "Bonus", desc: "Future revenue sharing from betting platform" }
+  ];
+
+  const steps = [
+    { number: "01", title: "Buy $CLUTCH", desc: "Purchase $CLUTCH on Uniswap using ETH on Base Chain" },
+    { number: "02", title: "Visit Staking Dapp", desc: "Go to our dedicated staking platform" },
+    { number: "03", title: "Connect Wallet", desc: "Connect your Coinbase Wallet or MetaMask" },
+    { number: "04", title: "Choose Pool & Stake", desc: "Select lock duration & stake your $CLUTCH" }
+  ];
+
+  return (
+    <section id="staking" className="py-40 px-6 relative usa-bg overflow-hidden border-t-8 border-clutch-blue/20">
+      <div className="max-w-7xl mx-auto relative z-20">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-display text-7xl md:text-8xl font-black mb-6 uppercase tracking-tighter">
+              STAKE <span className="text-clutch-blue">$CLUTCH</span>
+            </h2>
+            <p className="text-white/30 font-black uppercase tracking-[0.5em] text-xs mb-8">
+              LOCK & EARN • HIGHEST APY ON BASE
+            </p>
+            <div className="w-24 h-1 bg-clutch-blue mx-auto mb-12" />
+          </motion.div>
+        </div>
+
+        {/* APY Tiers - Clean Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-24">
+          {apyTiers.map((tier, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="relative group"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-clutch-blue to-clutch-red rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500" />
+              <div className="relative bg-black/95 rounded-2xl p-8 text-center border-2 border-white/10 group-hover:border-clutch-blue/50 transition-all">
+                <div className={`text-6xl font-black ${tier.textColor} mb-4`}>{tier.apy}%</div>
+                <div className="text-2xl font-display font-black mb-2">{tier.days} DAY LOCK</div>
+                <div className="text-white/40 text-sm mb-6">APY</div>
+                <div className="flex items-center justify-center gap-2 text-white/60 text-sm">
+                  <Clock size={16} />
+                  <span>Lock {tier.days} days</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Benefits Grid */}
+        <div className="grid md:grid-cols-4 gap-6 mb-24">
+          {benefits.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-black/50 border border-white/5 rounded-xl p-6 text-center hover:border-clutch-blue/30 transition-all group"
+            >
+              <item.icon size={36} className="text-clutch-blue mx-auto mb-4 group-hover:scale-110 transition-transform" />
+              <h4 className="font-black uppercase tracking-wider mb-2 text-sm">{item.title}</h4>
+              <p className="text-white/40 text-xs leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* How to Stake - Steps */}
+        <div className="mb-24">
+          <h3 className="text-2xl font-display font-black text-center mb-12 uppercase tracking-tighter">HOW TO STAKE</h3>
+          <div className="grid md:grid-cols-4 gap-8">
+            {steps.map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-clutch-blue to-clutch-red flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <span className="text-white font-black text-xl">{step.number}</span>
+                </div>
+                <h4 className="font-black mb-2">{step.title}</h4>
+                <p className="text-white/40 text-xs">{step.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Main CTA */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <div className="bg-gradient-to-r from-clutch-blue/10 via-clutch-red/10 to-clutch-blue/10 rounded-2xl p-12 border border-white/10">
+            <h3 className="text-3xl md:text-5xl font-display font-black mb-4">Ready to Start Earning?</h3>
+            <p className="text-white/60 mb-8 max-w-2xl mx-auto">
+              Lock your $CLUTCH and earn up to 500% APY. The longer you lock, the more you earn!
+            </p>
+            <a 
+              href={STAKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 clutch-gradient-btn px-12 py-4 text-lg"
+            >
+              Launch Staking App <ExternalLink size={18} />
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const Buy = () => {
   const [copied, setCopied] = React.useState(false);
-  const contractAddress = "0x0000000000000000000000000000000000000000";
+  const contractAddress = "0x7f2D6f4ae65A4e6F52A0f0895c834a68EE2472C4";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(contractAddress);
@@ -407,7 +563,6 @@ const Buy = () => {
 
 const Tactics = () => (
   <section id="tactics" className="py-40 px-6 usa-bg overflow-hidden relative border-t-8 border-clutch-blue/20 bg-gradient-to-b from-black to-[#050505]">
-    {/* Background visual element */}
     <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none overflow-hidden">
        <img src="/logo.png" className="w-full h-full object-contain scale-150 rotate-12 opacity-50" alt="bg" />
     </div>
@@ -455,7 +610,6 @@ const Tactics = () => (
         ))}
       </div>
 
-      {/* Progress Bar */}
       <div className="mt-40 relative pt-20">
         <div className="flex justify-between mb-6 text-[14px] font-black uppercase tracking-[0.6em] text-white/40 px-4">
            <span className="text-white">REGIONALS</span>
@@ -470,7 +624,6 @@ const Tactics = () => (
              viewport={{ once: true }}
              transition={{ duration: 3, ease: "easeInOut" }}
            />
-           {/* Moving Mascot Tracker */}
            <motion.div 
              className="absolute top-1/2 -translate-y-1/2 z-30"
              initial={{ left: 0 }}
@@ -505,7 +658,6 @@ const Mascot = () => (
       </div>
 
       <div className="relative">
-        {/* Center Image - Responsive Scale */}
         <div className="lg:absolute left-1/2 top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-10 pointer-events-none flex justify-center mb-16 lg:mb-0">
            <div className="relative">
               <div className="absolute -inset-10 lg:-inset-40 bg-clutch-blue/20 blur-[60px] lg:blur-[150px] rounded-full animate-pulse" />
@@ -517,23 +669,22 @@ const Mascot = () => (
            </div>
         </div>
 
-        {/* Features Grid */}
         <div className="grid lg:grid-cols-2 gap-x-20 gap-y-12 md:gap-y-64 relative z-20">
            <div className="space-y-24 md:space-y-64">
              <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} className="flex justify-start">
                <div className="w-full max-w-sm p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl">
                   <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">01</div>
                   <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">BETTING APP</h4>
-                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">WAGER $CLUTCH ON WORLD CUP QUALIFIERS. HIGH ODDS, INSTANT PAYOUTS, ZERO VIG. COMING Q4 2024.</p>
+                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">WAGER $CLUTCH ON WORLD CUP QUALIFIERS. HIGH ODDS, INSTANT PAYOUTS, ZERO VIG. COMING Q2 2026.</p>
                   <div className="absolute top-8 right-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors"><Monitor size={60} /></div>
                </div>
              </motion.div>
              <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} className="flex justify-start">
                <div className="w-full max-w-sm p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl">
                   <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">03</div>
-                  <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">DECENTRALIZED FAN-ID</h4>
-                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">SECURE YOUR ON-CHAIN IDENTITY. ACCESS EXCLUSIVE STADIUM PERKS AND FAN REWARDS GLOBALLY.</p>
-                  <div className="absolute top-8 right-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors"><Cpu size={60} /></div>
+                  <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">WORLD CUP PREDICTOR</h4>
+                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">PREDICT THE ULTIMATE WINNER FOR THE WORLD CUP. LOCK IN YOUR PICKS, COMPETE WITH FANS GLOBALLY, AND WIN REWARDS.</p>
+                  <div className="absolute top-8 right-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors"><Trophy size={60} /></div>
                </div>
              </motion.div>
            </div>
@@ -552,7 +703,7 @@ const Mascot = () => (
                   <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">04</div>
                   <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">STAKING LAB</h4>
                   <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">STAKE $CLUTCH TO EARN A SHARE OF BETTING PLATFORM REVENUE. THE HOUSE ALWAYS WINS, AND SO DO YOU.</p>
-                  <div className="absolute top-8 left-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors"><Trophy size={60} /></div>
+                  <div className="absolute top-8 left-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors"><Cpu size={60} /></div>
                </div>
              </motion.div>
            </div>
@@ -586,13 +737,15 @@ const Footer = () => (
             <h3 className="font-display font-black text-4xl md:text-6xl mb-10 uppercase tracking-tighter text-white">THE NATION IS <span className="text-clutch-blue italic">WATCHING</span></h3>
             <div className="flex gap-8 justify-center lg:justify-end">
                {[
-                 { Icon: Twitter, label: "Twitter" },
-                 { Icon: Send, label: "Telegram" },
-                 { Icon: Globe, label: "Dexscreener" }
+                 { Icon: Twitter, label: "Twitter", url: "https://x.com/clutchonbase?s=21" },
+                 { Icon: Send, label: "Telegram", url: "https://t.me/ClutchOnBase" },
+                 { Icon: Globe, label: "Dexscreener", url: "https://dexscreener.com/base/0x7f2d6f4ae65a4e6f52a0f0895c834a68ee2472c4" }
                ].map((item, i) => (
                  <motion.a 
                    key={i} 
-                   href="#" 
+                   href={item.url}
+                   target="_blank"
+                   rel="noopener noreferrer"
                    whileHover={{ y: -10, scale: 1.1 }}
                    className="w-20 h-20 rounded-full border-4 border-clutch-blue/50 flex items-center justify-center bg-black/80 hover:border-clutch-blue transition-all group shadow-[0_0_30px_rgba(0,0,0,0.5)]"
                  >
@@ -602,25 +755,14 @@ const Footer = () => (
             </div>
          </div>
 
-         <div className="bg-[#0A0A0A] p-8 rounded-2xl border-2 border-white/5 w-full max-w-md shadow-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-clutch-blue/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <h4 className="text-[12px] font-black uppercase tracking-[0.4em] mb-6 text-white/40">JOIN THE WHITELIST</h4>
-            <div className="flex gap-2">
-               <input 
-                 placeholder="WALLET ADDRESS"
-                 className="flex-1 bg-black border-2 border-white/10 p-4 text-xs font-bold uppercase tracking-widest focus:outline-none focus:border-clutch-blue transition-all" 
-               />
-               <button className="bg-clutch-blue text-white px-8 font-black text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">JOIN</button>
-            </div>
-         </div>
+         
       </div>
     </div>
 
     <div className="max-w-7xl mx-auto mt-32 pt-10 border-t-2 border-white/5 flex flex-col md:flex-row justify-between text-[11px] font-black uppercase tracking-[0.5em] text-white/20 text-center md:text-left gap-6">
        <div>© 2026 CLUTCH ON BASE | ALL RIGHTS RESERVED.</div>
        <div className="flex gap-10 justify-center">
-         <span className="text-clutch-blue italic">OFFICIAL CLUTCH PROTOCOL</span>
-         <span>FULLY AUDITED SMART CONTRACT.</span>
+         
        </div>
     </div>
   </footer>
@@ -635,6 +777,7 @@ export default function App() {
         <Hero />
         <Scout />
         <Tokenomics />
+        <Staking />
         <Buy />
         <Tactics />
         <Mascot />
@@ -643,4 +786,3 @@ export default function App() {
     </div>
   );
 }
-
