@@ -647,71 +647,195 @@ const Tactics = () => (
   </section>
 );
 
-const Mascot = () => (
-  <section id="mascot" className="relative usa-bg overflow-hidden border-y-8 border-clutch-red/20 py-40">
-    <div className="max-w-7xl mx-auto px-6 relative z-10">
-      <div className="text-center mb-40">
-        <h2 className="font-display text-6xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-4">
-          ACTIVATE <span className="text-clutch-blue">CLUTCH</span>
-        </h2>
-        <p className="text-white/30 font-black uppercase tracking-[0.5em] text-sm">The 12th man. The ultimate crypto advantage.</p>
-      </div>
+const Mascot = () => {
+  const features = [
+    {
+      id: "01",
+      title: "BETTING APP",
+      description:
+        "WAGER $CLUTCH ON WORLD CUP QUALIFIERS. HIGH ODDS, INSTANT PAYOUTS, ZERO VIG. COMING Q2 2026.",
+      icon: Monitor,
+    },
+    {
+      id: "02",
+      title: "SMART STATS",
+      description:
+        "REAL-TIME ON-CHAIN SETTLEMENT FOR ALL BETS. TRANSPARENT, AUDITABLE, AND UNSTOPPABLE.",
+      icon: Database,
+    },
+    {
+      id: "03",
+      title: "WORLD CUP PREDICTOR",
+      description:
+        "PREDICT THE ULTIMATE WINNER FOR THE WORLD CUP. LOCK IN YOUR PICKS, COMPETE WITH FANS GLOBALLY, AND WIN REWARDS.",
+      icon: Trophy,
+    },
+    {
+      id: "04",
+      title: "STAKING LAB",
+      description:
+        "STAKE $CLUTCH TO EARN A SHARE OF BETTING PLATFORM REVENUE. THE HOUSE ALWAYS WINS, AND SO DO YOU.",
+      icon: Cpu,
+    },
+  ];
 
-      <div className="relative">
-        <div className="lg:absolute left-1/2 top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-10 pointer-events-none flex justify-center mb-16 lg:mb-0">
-           <div className="relative">
+  return (
+    <section
+      id="mascot"
+      className="relative usa-bg overflow-hidden border-y-8 border-clutch-red/20 py-40"
+    >
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-40">
+          <h2 className="font-display text-6xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-4">
+            ACTIVATE <span className="text-clutch-blue">CLUTCH</span>
+          </h2>
+          <p className="text-white/30 font-black uppercase tracking-[0.5em] text-sm">
+            The 12th man. The ultimate crypto advantage.
+          </p>
+        </div>
+
+        <div className="relative">
+          {/* Centered Mascot Image - Visible only on large screens */}
+          <div className="lg:absolute left-1/2 top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-10 pointer-events-none hidden lg:flex justify-center mb-16 lg:mb-0">
+            <div className="relative">
               <div className="absolute -inset-10 lg:-inset-40 bg-clutch-blue/20 blur-[60px] lg:blur-[150px] rounded-full animate-pulse" />
-              <img 
-                src="/5843827048512687173.png" 
-                alt="Main Mascot Clutch" 
-                className="w-[280px] md:w-[400px] lg:w-[550px] h-auto relative z-10 drop-shadow-[0_0_60px_rgba(0,51,160,0.4)] lg:drop-shadow-[0_0_100px_rgba(0,51,160,0.5)]" 
+              <img
+                src="/5843827048512687173.png"
+                alt="Main Mascot Clutch"
+                className="w-[280px] md:w-[400px] lg:w-[550px] h-auto relative z-10 drop-shadow-[0_0_60px_rgba(0,51,160,0.4)] lg:drop-shadow-[0_0_100px_rgba(0,51,160,0.5)]"
               />
-           </div>
-        </div>
+            </div>
+          </div>
 
-        <div className="grid lg:grid-cols-2 gap-x-20 gap-y-12 md:gap-y-64 relative z-20">
-           <div className="space-y-24 md:space-y-64">
-             <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} className="flex justify-start">
-               <div className="w-full max-w-sm p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl">
-                  <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">01</div>
-                  <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">BETTING APP</h4>
-                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">WAGER $CLUTCH ON WORLD CUP QUALIFIERS. HIGH ODDS, INSTANT PAYOUTS, ZERO VIG. COMING Q2 2026.</p>
-                  <div className="absolute top-8 right-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors"><Monitor size={60} /></div>
-               </div>
-             </motion.div>
-             <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} className="flex justify-start">
-               <div className="w-full max-w-sm p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl">
-                  <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">03</div>
-                  <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">WORLD CUP PREDICTOR</h4>
-                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">PREDICT THE ULTIMATE WINNER FOR THE WORLD CUP. LOCK IN YOUR PICKS, COMPETE WITH FANS GLOBALLY, AND WIN REWARDS.</p>
-                  <div className="absolute top-8 right-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors"><Trophy size={60} /></div>
-               </div>
-             </motion.div>
-           </div>
+          {/* Mobile Layout: Single column, correct order 01 → 02 → 03 → 04 */}
+          <div className="block lg:hidden space-y-12 relative z-20">
+            {features.map((feature) => (
+              <motion.div
+                key={feature.id}
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                className="w-full p-8 md:p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl"
+              >
+                <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">
+                  {feature.id}
+                </div>
+                <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">
+                  {feature.title}
+                </h4>
+                <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">
+                  {feature.description}
+                </p>
+                <div className="absolute top-8 right-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors">
+                  <feature.icon size={60} />
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-           <div className="space-y-24 md:space-y-64">
-             <motion.div initial={{ x: 100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} className="flex justify-end">
-               <div className="w-full max-w-sm p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl text-right">
-                  <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">02</div>
-                  <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">SMART STATS</h4>
-                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">REAL-TIME ON-CHAIN SETTLEMENT FOR ALL BETS. TRANSPARENT, AUDITABLE, AND UNSTOPPABLE.</p>
-                  <div className="absolute top-8 left-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors"><Database size={60} /></div>
-               </div>
-             </motion.div>
-             <motion.div initial={{ x: 100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} className="flex justify-end">
-               <div className="w-full max-w-sm p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl text-right">
-                  <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">04</div>
-                  <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">STAKING LAB</h4>
-                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">STAKE $CLUTCH TO EARN A SHARE OF BETTING PLATFORM REVENUE. THE HOUSE ALWAYS WINS, AND SO DO YOU.</p>
-                  <div className="absolute top-8 left-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors"><Cpu size={60} /></div>
-               </div>
-             </motion.div>
-           </div>
+          {/* Desktop Layout: Two columns (01 + 03 on left, 02 + 04 on right) */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-x-20 gap-y-64 relative z-20">
+            {/* Left Column: Cards 01 & 03 */}
+            <div className="space-y-64">
+              <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                className="flex justify-start"
+              >
+                <div className="w-full max-w-sm p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl">
+                  <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">
+                    01
+                  </div>
+                  <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">
+                    BETTING APP
+                  </h4>
+                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">
+                    WAGER $CLUTCH ON WORLD CUP QUALIFIERS. HIGH ODDS, INSTANT
+                    PAYOUTS, ZERO VIG. COMING Q2 2026.
+                  </p>
+                  <div className="absolute top-8 right-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors">
+                    <Monitor size={60} />
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                className="flex justify-start"
+              >
+                <div className="w-full max-w-sm p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl">
+                  <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">
+                    03
+                  </div>
+                  <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">
+                    WORLD CUP PREDICTOR
+                  </h4>
+                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">
+                    PREDICT THE ULTIMATE WINNER FOR THE WORLD CUP. LOCK IN YOUR
+                    PICKS, COMPETE WITH FANS GLOBALLY, AND WIN REWARDS.
+                  </p>
+                  <div className="absolute top-8 right-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors">
+                    <Trophy size={60} />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Cards 02 & 04 */}
+            <div className="space-y-64">
+              <motion.div
+                initial={{ x: 100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                className="flex justify-end"
+              >
+                <div className="w-full max-w-sm p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl text-right">
+                  <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">
+                    02
+                  </div>
+                  <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">
+                    SMART STATS
+                  </h4>
+                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">
+                    REAL-TIME ON-CHAIN SETTLEMENT FOR ALL BETS. TRANSPARENT,
+                    AUDITABLE, AND UNSTOPPABLE.
+                  </p>
+                  <div className="absolute top-8 left-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors">
+                    <Database size={60} />
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ x: 100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                className="flex justify-end"
+              >
+                <div className="w-full max-w-sm p-10 bg-black/95 border-2 border-clutch-blue/30 rounded-3xl shadow-2xl relative group hover:border-clutch-blue transition-all backdrop-blur-xl text-right">
+                  <div className="text-clutch-red font-display font-black text-6xl mb-6 tracking-tighter italic">
+                    04
+                  </div>
+                  <h4 className="font-black uppercase tracking-[0.3em] text-lg mb-4 text-white">
+                    STAKING LAB
+                  </h4>
+                  <p className="text-white/40 text-xs font-bold leading-relaxed uppercase tracking-widest">
+                    STAKE $CLUTCH TO EARN A SHARE OF BETTING PLATFORM REVENUE.
+                    THE HOUSE ALWAYS WINS, AND SO DO YOU.
+                  </p>
+                  <div className="absolute top-8 left-8 text-white/5 group-hover:text-clutch-blue/20 transition-colors">
+                    <Cpu size={60} />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Footer = () => (
   <footer className="py-24 px-6 bg-black usa-bg border-t-8 border-clutch-red relative overflow-hidden">
